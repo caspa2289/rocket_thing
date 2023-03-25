@@ -6,7 +6,10 @@ import './index.css'
 import App from './components/App'
 // import reportWebVitals from './reportWebVitals'
 
-const container = document.getElementById('root')!
+const container = document?.getElementById('root')
+
+if (!container) throw new Error('Unable to find root container')
+
 const root = createRoot(container)
 
 root.render(
