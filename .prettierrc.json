@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "plugin:prettier/recommended",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
+  "tabWidth": 4,
+  "singleQuote": true,
+  "endOfLine": "auto",
+  "semi": false,
+  "quoteProps": "consistent"
+}
