@@ -1,19 +1,54 @@
 import styles from './Button.module.scss'
-import { FC } from 'react'
+import { FC, memo, useCallback, useMemo } from 'react'
+import classNames from 'classnames'
 
-interface IButtonProps {
-    text: string
-    onClick?: () => void
+export interface IButtonProps {
+    children?: string
+    onClick: () => void
     isDisabled?: boolean
     isLoading?: boolean
-    size?: 'sm' | 'md' | 'lg'
+    size?: TButtonSize
 }
 
-export const Button: FC<IButtonProps> = (props) => {
-    const { text, onClick } = props
+export type TButtonSize = 'sm' | 'md' | 'lg'
+
+const sizeMap: Record<TButtonSize, string> = {
+    sm: styles.button__small,
+    md: styles.button__medium,
+    lg: styles.button__large,
+}
+
+export const Button: FC<IButtonProps> = memo((props) => {
+    const { children, onClick, size = 'md', isLoading, isDisabled } = props
+
+    const isButtonClickable = useMemo(
+        () => !isLoading && !isDisabled,
+        [isLoading, isDisabled]
+    )
+
+    const buttonClassName = useMemo(
+        () =>
+            classNames(
+                isButtonClickable
+                    ? styles.button__active
+                    : styles.button__inactive,
+                sizeMap[size]
+            ),
+        [isButtonClickable, size]
+    )
+
+    const displayContent = useMemo(
+        () => (isLoading ? 'Loading' : children),
+        [isLoading, children]
+    )
+
+    const handleClick = useCallback(() => {
+        if (isButtonClickable) onClick()
+    }, [])
+
     return (
-        <button className={styles.btn}>
-            {text},{onClick}
+        <button onClick={handleClick} className={buttonClassName}>
+            {displayContent}
         </button>
     )
-}
+})

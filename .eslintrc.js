@@ -19,5 +19,7 @@ module.exports = {
     plugins: ['react', '@typescript-eslint', 'css-modules'],
     rules: {
         '@typescript-eslint/no-non-null-assertion': 'error',
+        'react/prop-types': 0,
+        'react/display-name': 0,
     },
 }
