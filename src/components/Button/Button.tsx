@@ -10,9 +10,10 @@ interface IButtonProps {
 }
 
 export const Button: FC<IButtonProps> = (props) => {
+    const { text, onClick } = props
     return (
         <button className={styles.btn}>
-            {props.text},{props.onClick}
+            {text},{onClick}
         </button>
     )
 }
