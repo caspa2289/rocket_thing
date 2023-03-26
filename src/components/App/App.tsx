@@ -1,10 +1,10 @@
 import styles from './App.module.css'
-import { Example } from '../Example'
+import { Button } from '../Button'
 
 function App() {
     return (
         <div className={styles.wrapper}>
-            <Example content={123} />
+            <Button text="govno" />
         </div>
     )
 }
