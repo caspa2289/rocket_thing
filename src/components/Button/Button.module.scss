@@ -1,16 +1,45 @@
-.btn {
-  background: #ffd300;
+.button {
   text-transform: uppercase;
   border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  height: 40px;
-  width: 140px;
-  text-align: center;
   font-weight: bold;
-  font-family: Roboto;
-}
-.btn:hover {
-  background: #ff8b00;
-  transition: background-color 0.1s linear;
+  cursor: pointer;
+
+  &__active {
+    @extend .button;
+    background: #ffd300;
+    &:hover {
+      background: #ff8b00;
+      color: white;
+      transition: background-color 0.1s linear;
+    }
+  }
+
+  &__inactive {
+    @extend .button;
+    cursor: default;
+    background: #ff8b00;
+    color: gray;
+  }
+
+  &__large {
+    border-radius: 6px;
+    font-size: 18px;
+    height: 60px;
+    min-width: 180px;
+  }
+
+  &__medium {
+    border-radius: 5px;
+    font-size: 14px;
+    height: 40px;
+    min-width: 140px;
+  }
+
+  &__small {
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 10px;
+    height: 25px;
+    min-width: 100px;
+  }
 }
