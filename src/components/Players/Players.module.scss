@@ -1,0 +1,49 @@
+.wrapper {
+  background-color: lightgrey;
+  width: 300px ;
+  height: 600px;
+}
+.players_list  {
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: dimgrey;
+  margin: auto;
+  margin-top: 8px;
+  padding: 10px;
+  width: 85%;
+  position: relative;
+}
+.player {
+margin-bottom: 5px;
+  position: relative;
+  left: 50px;
+}
+.bet {
+  color: #ff8b00;
+  position: relative;
+  left: 50px;
+}
+.profilePicture {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+.player__waiting{
+  color: white;
+  border: 3px solid black;
+  border-radius: 10px;
+  background: dimgrey;
+}
+.player__won{
+  color: white;
+  border: 3px solid forestgreen;
+  border-radius: 10px;
+  background: dimgrey;
+}
+.player__lost{
+  color: white;
+  border: 3px solid red;
+  border-radius: 10px;
+  background: dimgrey;
+}
