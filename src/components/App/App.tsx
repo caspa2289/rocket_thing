@@ -8,7 +8,7 @@ function App() {
     const [text, setText] = useState('')
     const [size, setSize] = useState<TButtonSize>('md')
 
-    function randomFlyTime(min, max) {
+    const randomFlyTime = (min: number, max: number) => {
         // получить случайное число от (min-0.5) до (max+0.5)
         const rand = min - 0.5 + Math.random() * (max - min + 1)
         return rand
