@@ -6,7 +6,7 @@ import { TButtonSize } from '../Button'
 import classNames from 'classnames'
 
 export interface IPlayersProps {
-    name?: string
+    name: string
     bet?: number
     coefficient?: number
     gain?: number
@@ -15,45 +15,48 @@ export interface IPlayersProps {
 
 export type Tstatus = 'waiting' | 'won' | 'lost'
 
-// const playerStatusMap: Record<Tstatus, string> = {
-//     waiting: styles.player__waiting,
-//     won: styles.player__won,
-//     lost: styles.player__lost,
-// }
+const playerStatusMap: Record<Tstatus, string> = {
+    waiting: styles.player__waiting,
+    won: styles.player__won,
+    lost: styles.player__lost,
+}
 
-const players = [
+const players: IPlayersProps[] = [
     {
         name: 'Иван Говнов',
         bet: 228,
-        status: styles.player__waiting,
+        status: 'waiting',
     },
     {
         name: 'Носитель Штанов',
         bet: 1488,
-        status: styles.player__won,
+        status: 'won',
     },
     {
         name: 'Говоритель Хуйни',
         bet: 1,
-        status: styles.player__lost,
+        status: 'lost',
     },
 ]
 
 export const Players = () => {
-    // const { name, bet } = props
-    // const { status } = props
-
     const output = players.map((element, index) => {
+        const cutName = (
+            <span className={styles.player}>
+                {element.name.split('').splice(0, element.name.length / 2)}
+                {'...'}
+            </span>
+        )
         return (
             <div
                 key={index}
-                className={classNames(styles.players_list, element.status)}
+                className={classNames(
+                    styles.players_list,
+                    playerStatusMap[element.status]
+                )}
             >
                 <img src={profilePicture} className={styles.profilePicture} />
-                <span className={styles.player}>
-                    {element.name.split('').splice(0, element.name.length / 2)}
-                    {'...'}
-                </span>
+                {cutName}
                 <br />
                 <span className={styles.bet}>{element.bet + ' ₽'}</span>
             </div>
@@ -62,9 +65,7 @@ export const Players = () => {
 
     return (
         <div className={styles.wrapper}>
-            <span>{'Игрок и ставка  Кэф   Выигрыш'}</span>
-            {/*<span>{'Кэф'}</span>*/}
-            {/*<span>{'Выигрыш'}</span>*/}
+            <span>Игрок и ставка Кэф Выигрыш</span>
             <div className={styles.player}>{output}</div>
         </div>
     )

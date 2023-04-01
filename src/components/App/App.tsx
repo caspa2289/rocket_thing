@@ -8,9 +8,8 @@ function App() {
     const [text, setText] = useState('')
     const [size, setSize] = useState<TButtonSize>('md')
 
-    const randomFlyTime = (min: number, max: number) => {
-        // получить случайное число от (min-0.5) до (max+0.5)
-        const rand = min - 0.5 + Math.random() * (max - min + 1)
+    const getRandomFlyTime = (max: number) => {
+        const rand = -0.5 + Math.random() * (max + 1)
         return rand
     }
 
@@ -21,7 +20,7 @@ function App() {
         setTimeout(() => {
             setIsLoading(false)
             setText('zakonchili dumat')
-        }, randomFlyTime(0, 10000))
+        }, getRandomFlyTime(10000))
     }
 
     return (
