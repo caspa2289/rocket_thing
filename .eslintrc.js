@@ -21,5 +21,6 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'error',
         'react/prop-types': 0,
         'react/display-name': 0,
+        'react/no-unknown-property': 'warn',
     },
 }
