@@ -1,11 +1,17 @@
 import styles from './App.module.css'
 import { Button, TButtonSize } from '../Button'
+import { Players } from '../Players'
 import { useState } from 'react'
 
 function App() {
     const [isLoading, setIsLoading] = useState(false)
     const [text, setText] = useState('')
     const [size, setSize] = useState<TButtonSize>('md')
+
+    const getRandomFlyTime = (max: number) => {
+        const rand = -0.5 + Math.random() * (max + 1)
+        return rand
+    }
 
     const handleDemoClick = () => {
         setIsLoading(true)
@@ -14,11 +20,12 @@ function App() {
         setTimeout(() => {
             setIsLoading(false)
             setText('zakonchili dumat')
-        }, 2000)
+        }, getRandomFlyTime(10000))
     }
 
     return (
         <div className={styles.wrapper}>
+            <Players />
             <h3>{text}</h3>
             Пример использования:
             <br />
