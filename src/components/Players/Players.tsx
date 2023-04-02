@@ -1,9 +1,7 @@
 import styles from './Players.module.scss'
-import { FC, memo, useCallback, useMemo } from 'react'
-import { IExampleProps } from '../Example'
 import profilePicture from '../Players/img/dog.png'
-import { TButtonSize } from '../Button'
 import classNames from 'classnames'
+import { useMemo } from 'react'
 
 export interface IPlayersProps {
     name: string
@@ -40,33 +38,35 @@ const players: IPlayersProps[] = [
 ]
 
 export const Players = () => {
-    const output = players.map((element, index) => {
-        const cutName = (
-            <span className={styles.player}>
-                {element.name.split('').splice(0, element.name.length / 2)}
-                {'...'}
-            </span>
-        )
-        return (
-            <div
-                key={index}
-                className={classNames(
-                    styles.players_list,
-                    playerStatusMap[element.status]
-                )}
-            >
-                <img src={profilePicture} className={styles.profilePicture} />
-                {cutName}
-                <br />
-                <span className={styles.bet}>{element.bet + ' ₽'}</span>
-            </div>
-        )
-    })
-
-    return (
-        <div className={styles.wrapper}>
-            <span>Игрок и ставка Кэф Выигрыш</span>
-            <div className={styles.player}>{output}</div>
-        </div>
+    const playerList = useMemo(
+        () =>
+            players.map((element, index) => {
+                const { name, bet, status } = element
+                return (
+                    <div
+                        key={index}
+                        className={classNames(
+                            styles.player,
+                            playerStatusMap[status]
+                        )}
+                    >
+                        <img
+                            src={profilePicture}
+                            className={styles.player__picture}
+                        />
+                        <div className={styles.player__info}>
+                            <span className={styles.player__info__name}>
+                                {name}
+                            </span>
+                            <span className={styles.player__info__bet}>
+                                {bet}&nbsp;₽
+                            </span>
+                        </div>
+                    </div>
+                )
+            }),
+        [players]
     )
+
+    return <div className={styles.wrapper}>{playerList}</div>
 }
