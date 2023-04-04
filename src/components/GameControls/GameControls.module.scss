@@ -1,0 +1,14 @@
+.wrapper {
+  min-height: 90px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8px;
+  align-items: center;
+}
+
+.section {
+  background-color: #22252f;
+  height: 100%;
+  border-radius: 8px;
+  color: white;
+}

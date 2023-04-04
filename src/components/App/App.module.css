@@ -7,3 +7,8 @@
     justify-content: center;
     gap: 10px;
 }
+
+.game__wrapper {
+    display: flex;
+    gap: 10px;
+}

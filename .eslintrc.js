@@ -22,5 +22,7 @@ module.exports = {
         'react/prop-types': 0,
         'react/display-name': 0,
         'react/no-unknown-property': 'warn',
+        'css-modules/no-undef-class': 'warn',
+        'css-modules/no-unused-class': 'warn',
     },
 }

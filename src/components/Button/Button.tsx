@@ -8,6 +8,7 @@ export interface IButtonProps {
     isDisabled?: boolean
     isLoading?: boolean
     size?: TButtonSize
+    block?: boolean
 }
 
 export type TButtonSize = 'sm' | 'md' | 'lg'
@@ -19,7 +20,14 @@ const sizeMap: Record<TButtonSize, string> = {
 }
 
 export const Button: FC<IButtonProps> = memo((props) => {
-    const { children, onClick, size = 'md', isLoading, isDisabled } = props
+    const {
+        children,
+        onClick,
+        size = 'md',
+        isLoading,
+        isDisabled,
+        block,
+    } = props
 
     const isButtonClickable = useMemo(
         () => !isLoading && !isDisabled,
@@ -32,7 +40,8 @@ export const Button: FC<IButtonProps> = memo((props) => {
                 isButtonClickable
                     ? styles.button__active
                     : styles.button__inactive,
-                sizeMap[size]
+                sizeMap[size],
+                block && styles.button__block
             ),
         [isButtonClickable, size]
     )

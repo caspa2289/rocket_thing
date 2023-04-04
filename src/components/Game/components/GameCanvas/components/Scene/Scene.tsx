@@ -4,10 +4,14 @@ import { Euler } from 'three'
 import { Box, Plane } from '@react-three/drei'
 import { Shit } from '../Shit'
 import { useFrame } from '@react-three/fiber'
+import { useDispatch } from 'react-redux'
+import { setGameStage } from '../../../../../../reducers/game'
+import { GAME_STAGES } from '../../../../../../utils/constants'
 // import { Diarrhea } from '../Diarrhea'
 // import { Bowl } from '../Bowl'
 
 export const Scene: FC = memo(() => {
+    const dispatch = useDispatch()
     const [length, setLength] = useState(1)
 
     const [isShitting, setIsShitting] = useState(true)
@@ -21,6 +25,7 @@ export const Scene: FC = memo(() => {
 
         if (length >= 100) {
             setIsShitting(false)
+            dispatch(setGameStage(GAME_STAGES.finished))
         }
     })
 
