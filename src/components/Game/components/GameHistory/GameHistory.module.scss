@@ -1,23 +1,22 @@
 .wrapper {
   display: flex;
-  width: calc(100% - 20px);
   margin: 10px;
   border-radius: 8px;
-  height: 64px;
+  height: 42px;
   background-color: gray;
   z-index: 2;
   align-items: center;
   justify-content: space-between;
+  padding-inline: 10px
 }
 .coefficent {
   border-radius: 5px;
   font-size: 0.7em;
-  width: calc(9%);
+  width: 45px;
   font-family: Roboto;
   display: flex;
   align-items: center;
   height: 1.5em;
-  text-align: center;
   justify-content: center;
 }
 .zero_cf{
