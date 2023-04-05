@@ -1,13 +1,10 @@
 import { FC, useMemo } from 'react'
 import styles from './GameHistory.module.scss'
 import classNames from 'classnames'
-import profilePicture from '../../../Players/img/dog.png'
 
 interface IHistoryProps {
-    // coefficients: number[]
     val: number
     cfcolor: Tcolor
-    // cfHistory: object[]
 }
 
 export type Tcolor = 'red' | 'white' | 'orange' | 'green'
@@ -50,10 +47,5 @@ export const GameHistory = () => {
             }),
         [coloredCfs]
     )
-    return (
-        <div className={styles.wrapper}>
-            {/*<span className={styles.lg_cf}>17.28 X</span>*/}
-            {cfHistory}
-        </div>
-    )
+    return <div className={styles.wrapper}>{cfHistory}</div>
 }
