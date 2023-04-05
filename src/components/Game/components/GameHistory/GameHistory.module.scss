@@ -1,9 +1,43 @@
+//:root {
+//  --wrapper-width: 300px;
+//}
 .wrapper {
   position: absolute;
+  display: flex;
   width: calc(100% - 20px);
   margin: 10px;
   border-radius: 8px;
   height: 64px;
   background-color: gray;
   z-index: 2;
+  //opacity: 0.22;
 }
+.coefficent {
+  border-radius: 5px;
+  //display: block;
+  font-size: 0.7em;
+  margin-left: 2%;
+  width: calc(10%);
+  font-family: Roboto;
+  //display: flex;
+  //text-align: center;
+  justify-content: space-between;
+}
+.zero_cf{
+  border: red 1px solid;
+
+}
+.sm_cf{
+  border: white 2px solid;
+}
+.md_cf{
+  border: orange 2px solid;
+}
+.lg_cf{
+  border: green 2px solid;
+
+}
+span {
+  margin: 5px;
+}
+
