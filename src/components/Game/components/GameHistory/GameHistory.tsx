@@ -2,23 +2,23 @@ import { FC, useMemo } from 'react'
 import styles from './GameHistory.module.scss'
 import classNames from 'classnames'
 
-interface IHistoryProps {
+interface IHistoryItem {
     val: number
-    cfcolor: Tcolor
+    cfcolor: TColor
 }
 
-export type Tcolor = 'red' | 'white' | 'orange' | 'green'
+export type TColor = 'red' | 'white' | 'orange' | 'green'
 
-const gradeCfMap: Record<Tcolor, string> = {
-    red: styles.zero_cf,
-    white: styles.sm_cf,
-    orange: styles.md_cf,
-    green: styles.lg_cf,
+const gradeCfMap: Record<TColor, string> = {
+    red: styles.zero_coefficient,
+    white: styles.sm_zero_coefficient,
+    orange: styles.md_zero_coefficient,
+    green: styles.lg_zero_coefficient,
 }
 
 const coefficients = [12.12, 4.23, 1.22, 6.98, 0, 0, 4.01, 2.0, 0, 4.76]
 
-const coloredCfs: IHistoryProps[] = coefficients.map((element, index) => {
+const coloredCfs: IHistoryItem[] = coefficients.map((element, index) => {
     if (element == 0) {
         return { val: element, cfcolor: 'red' }
     } else if (element > 0 && element <= 2) {
@@ -41,7 +41,7 @@ export const GameHistory = () => {
                             gradeCfMap[cfcolor]
                         )}
                     >
-                        {element.val} X
+                        {val} X
                     </span>
                 )
             }),

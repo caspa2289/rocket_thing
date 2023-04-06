@@ -6,7 +6,7 @@
   background-color: gray;
   z-index: 2;
   align-items: center;
-  justify-content: space-between;
+  gap: 2%;
   padding-inline: 10px
 }
 .coefficent {
@@ -19,17 +19,17 @@
   height: 1.5em;
   justify-content: center;
 }
-.zero_cf{
+.zero_coefficient{
   border: red 1px solid;
 
 }
-.sm_cf{
+.sm_zero_coefficient{
   border: white 2px solid;
 }
-.md_cf{
+.md_zero_coefficient{
   border: orange 2px solid;
 }
-.lg_cf{
+.lg_zero_coefficient{
   border: green 2px solid;
 
 }
