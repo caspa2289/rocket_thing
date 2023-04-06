@@ -1,9 +1,36 @@
 .wrapper {
-  position: absolute;
-  width: calc(100% - 20px);
+  display: flex;
   margin: 10px;
   border-radius: 8px;
-  height: 64px;
+  height: 42px;
   background-color: gray;
   z-index: 2;
+  align-items: center;
+  gap: 2%;
+  padding-inline: 10px
 }
+.coefficent {
+  border-radius: 5px;
+  font-size: 0.7em;
+  width: 45px;
+  font-family: Roboto;
+  display: flex;
+  align-items: center;
+  height: 1.5em;
+  justify-content: center;
+}
+.zero_coefficient{
+  border: red 1px solid;
+
+}
+.sm_zero_coefficient{
+  border: white 2px solid;
+}
+.md_zero_coefficient{
+  border: orange 2px solid;
+}
+.lg_zero_coefficient{
+  border: green 2px solid;
+
+}
+
