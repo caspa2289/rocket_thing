@@ -1,0 +1,38 @@
+.header {
+  background-color: black;
+  height: 50px;
+  width: 100%;
+  font-family: Roboto;
+  font-size: 3em;
+  display: inline-flex;
+  align-items: center;
+
+  //position: fixed;
+}
+.logo {
+  display: flex;
+  padding-left: 90px;
+  height: 30px;
+  //padding-block: 10px;
+  //align-items: center;
+  //justify-content: center;
+
+}
+.header_btn {
+  display: flex;
+  font-family: Roboto;
+  border-radius: 5px;
+  font-size: 14px;
+  height: 40px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: flex-end;
+}
+.sign_in {
+  background-color: black;
+  color: white;
+  border: 1px solid;
+}
+.sign_up {
+  background-color: #ff8b00;
+}

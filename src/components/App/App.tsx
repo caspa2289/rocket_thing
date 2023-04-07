@@ -9,6 +9,7 @@ import { Button } from '../Button'
 import { useAppDispatch } from '../../utils/storeHooks'
 import { resetGameState } from '../../reducers/game'
 import { Players } from '../Players'
+import { Header } from '../Header'
 
 function App() {
     const dispatch = useAppDispatch()
@@ -20,23 +21,26 @@ function App() {
     )
 
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.game__wrapper}>
-                <Players />
-                <Game />
-            </div>
+        <div>
+            <Header />
+            <div className={styles.wrapper}>
+                <div className={styles.game__wrapper}>
+                    <Players />
+                    <Game />
+                </div>
 
-            <GameControls disabled={isControlsDisabled} />
-            {stage === GAME_STAGES.finished && (
-                //это мок, сигнал о старте нового раунда будет с сервера приходить
-                <Button
-                    onClick={() => {
-                        dispatch(resetGameState())
-                    }}
-                >
-                    Сбросить состояние
-                </Button>
-            )}
+                <GameControls disabled={isControlsDisabled} />
+                {stage === GAME_STAGES.finished && (
+                    //это мок, сигнал о старте нового раунда будет с сервера приходить
+                    <Button
+                        onClick={() => {
+                            dispatch(resetGameState())
+                        }}
+                    >
+                        Сбросить состояние
+                    </Button>
+                )}
+            </div>
         </div>
     )
 }
