@@ -6,13 +6,27 @@ import classNames from 'classnames'
 export const Header = () => {
     return (
         <div className={styles.header}>
-            <img className={styles.logo} src={logo} />
-            <button className={classNames(styles.header_btn, styles.sign_in)}>
-                Войти
-            </button>
-            <button className={classNames(styles.header_btn, styles.sign_up)}>
-                Регистрация
-            </button>
+            <div className="header_section">
+                <img className={styles.logo} src={logo} />
+            </div>
+            <div className="header_section">
+                <button
+                    className={classNames(
+                        styles.header_btn,
+                        styles.sign_in_btn
+                    )}
+                >
+                    Войти
+                </button>
+                <button
+                    className={classNames(
+                        styles.header_btn,
+                        styles.sign_up_btn
+                    )}
+                >
+                    Регистрация
+                </button>
+            </div>
         </div>
     )
 }

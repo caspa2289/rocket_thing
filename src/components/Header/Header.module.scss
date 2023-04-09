@@ -1,38 +1,31 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
   background-color: black;
-  height: 50px;
-  width: 100%;
-  font-family: Roboto;
-  font-size: 3em;
-  display: inline-flex;
-  align-items: center;
-
-  //position: fixed;
 }
 .logo {
   display: flex;
   padding-left: 90px;
   height: 30px;
-  //padding-block: 10px;
-  //align-items: center;
-  //justify-content: center;
-
 }
 .header_btn {
-  display: flex;
   font-family: Roboto;
   border-radius: 5px;
   font-size: 14px;
-  height: 40px;
+  height: 30px;
   cursor: pointer;
-  align-items: center;
-  justify-content: flex-end;
+  padding: 0 18px;
 }
-.sign_in {
+.sign_in_btn {
   background-color: black;
   color: white;
   border: 1px solid;
 }
-.sign_up {
-  background-color: #ff8b00;
+.sign_up_btn {
+  background: linear-gradient(180deg,#f88a25,#fab42d 50.52%,#f8b025);
+  border: none;
 }
+
+
+
