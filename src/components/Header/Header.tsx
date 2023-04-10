@@ -1,31 +1,28 @@
-import { FC, useMemo } from 'react'
+import { FC, useCallback, useMemo } from 'react'
 import styles from './Header.module.scss'
-import logo from '../Header/img/dogx.png'
+import logo from '../Header/img/dogx.webp'
 import classNames from 'classnames'
+import { Button } from '../Button'
+import { setGameStage } from '../../reducers/game'
+import { GAME_STAGES } from '../../utils/constants'
 
 export const Header = () => {
+    const signIn = () => {
+        console.log('Войти')
+    }
+    const signUp = () => {
+        console.log('Регистрация')
+    }
     return (
         <div className={styles.header}>
-            <div className="header_section">
+            <div>
                 <img className={styles.logo} src={logo} />
             </div>
-            <div className="header_section">
-                <button
-                    className={classNames(
-                        styles.header_btn,
-                        styles.sign_in_btn
-                    )}
-                >
+            <div style={{ display: 'flex', gap: '5px' }}>
+                <Button onClick={signIn} type="ghost">
                     Войти
-                </button>
-                <button
-                    className={classNames(
-                        styles.header_btn,
-                        styles.sign_up_btn
-                    )}
-                >
-                    Регистрация
-                </button>
+                </Button>
+                <Button onClick={signUp}>Регистрация</Button>
             </div>
         </div>
     )

@@ -4,6 +4,18 @@
   font-weight: bold;
   cursor: pointer;
 
+  &__ghost {
+    text-transform: none;
+    background-color: transparent!important;
+    color: white;
+    border: 1px solid;
+    &:hover {
+      background-color: white!important;
+      color: black!important;
+      transition: 0.3s;
+    }
+  }
+
   &__active {
     @extend .button;
     background: #ffd300;
@@ -48,3 +60,4 @@
     height: 100%;
   }
 }
+
