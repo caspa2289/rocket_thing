@@ -3,13 +3,14 @@ import { Game } from '../Game'
 import { GameControls } from '../GameControls'
 import { useSelector } from 'react-redux'
 import { selectGameStage } from '../../selectors/game'
-import { useMemo } from 'react'
+import { SyntheticEvent, useMemo, useState } from 'react'
 import { GAME_STAGES } from '../../utils/constants'
 import { Button } from '../Button'
 import { useAppDispatch } from '../../utils/storeHooks'
 import { resetGameState } from '../../reducers/game'
 import { Players } from '../Players'
 import { Header } from '../Header'
+import { Modal } from '../Modal'
 
 function App() {
     const dispatch = useAppDispatch()
@@ -19,6 +20,12 @@ function App() {
         () => stage !== GAME_STAGES.beforeStarted,
         [stage]
     )
+
+    const [isActive, setIsActive] = useState(false)
+
+    const handleClick = () => {
+        setIsActive(!isActive)
+    }
 
     return (
         <div>
@@ -41,6 +48,8 @@ function App() {
                     </Button>
                 )}
             </div>
+            <Button onClick={handleClick}>Тестовая кнопка</Button>
+            <Modal isActive={isActive} onClose={handleClick} size="lg" />
         </div>
     )
 }
