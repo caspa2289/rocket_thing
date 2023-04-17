@@ -1,7 +1,12 @@
 import { AppThunk } from '../store'
-import { signinRequest, signupRequest } from '../api/user'
+import {
+    checkAuthorizationRequest,
+    signinRequest,
+    signupRequest,
+} from '../api/user'
 import { ILoginValues, ISignupValues } from '../types'
 import { getSHA256Hash } from '../utils/encryption'
+import { setUserData } from '../reducers/user'
 
 export const signup =
     ({
@@ -54,3 +59,13 @@ export const login =
             setSubmitting(false)
         }
     }
+
+export const checkAuthorization = (): AppThunk => async (dispatch) => {
+    try {
+        const { data } = await checkAuthorizationRequest()
+        dispatch(setUserData(data.response))
+    } catch (err: any) {
+        console.error(err.response.data.message ?? 'Неизвестная ошибка')
+        dispatch(setUserData({}))
+    }
+}
