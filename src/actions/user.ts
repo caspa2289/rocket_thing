@@ -11,7 +11,7 @@ export const signup =
         setSubmitting: (value: boolean) => void
         values: ISignupValues
     }): AppThunk =>
-    async (dispatch, getState) => {
+    async () => {
         const encryptedPassword = await getSHA256Hash(values.password)
 
         try {
