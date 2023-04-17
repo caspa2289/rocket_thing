@@ -22,3 +22,8 @@ export interface ISignupValues {
     login: string
     password: string
 }
+
+export interface ILoginValues {
+    login: string
+    password: string
+}
