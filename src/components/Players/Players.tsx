@@ -8,12 +8,12 @@ export interface IPlayersProps {
     bet?: number
     coefficient?: number
     gain?: number
-    status: Tstatus
+    status: TStatus
 }
 
-export type Tstatus = 'waiting' | 'won' | 'lost'
+export type TStatus = 'waiting' | 'won' | 'lost'
 
-const playerStatusMap: Record<Tstatus, string> = {
+const playerStatusMap: Record<TStatus, string> = {
     waiting: styles.player__waiting,
     won: styles.player__won,
     lost: styles.player__lost,
