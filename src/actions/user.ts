@@ -1,6 +1,7 @@
 import { AppThunk } from '../store'
 import { signupRequest } from '../api/user'
 import { ISignupValues } from '../types'
+import { getSHA256Hash } from '../utils/encryption'
 
 export const signup =
     ({
@@ -11,8 +12,13 @@ export const signup =
         values: ISignupValues
     }): AppThunk =>
     async (dispatch, getState) => {
+        const encryptedPassword = await getSHA256Hash(values.password)
+
         try {
-            const { data } = await signupRequest(values)
+            const { data } = await signupRequest({
+                ...values,
+                password: encryptedPassword,
+            })
 
             //TODO: уведомления для пользака
             console.log(data.message)
