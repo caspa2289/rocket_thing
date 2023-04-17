@@ -3,13 +3,14 @@ import { Game } from '../Game'
 import { GameControls } from '../GameControls'
 import { useSelector } from 'react-redux'
 import { selectGameStage } from '../../selectors/game'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { GAME_STAGES } from '../../utils/constants'
 import { Button } from '../Button'
 import { useAppDispatch } from '../../utils/storeHooks'
 import { resetGameState } from '../../reducers/game'
 import { Players } from '../Players'
 import { Header } from '../Header'
+import { checkAuthorization } from '../../actions/user'
 
 function App() {
     const dispatch = useAppDispatch()
@@ -19,6 +20,10 @@ function App() {
         () => stage !== GAME_STAGES.beforeStarted,
         [stage]
     )
+
+    useEffect(() => {
+        dispatch(checkAuthorization())
+    }, [])
 
     return (
         <div>

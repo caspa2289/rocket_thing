@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 import game from '../reducers/game'
+import user from '../reducers/user'
 
 export const store = configureStore({
     reducer: {
         game,
+        user,
     },
 })
 
