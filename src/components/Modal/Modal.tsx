@@ -1,10 +1,9 @@
-import { FC, memo, useCallback, useMemo } from 'react'
+import { FC, memo, ReactNode } from 'react'
 import styles from './Modal.module.scss'
 import classNames from 'classnames'
-import { Button, IButtonProps, TButtonSize } from '../Button'
 
 export interface IModalProps {
-    children?: string
+    children?: ReactNode
     isActive?: boolean
     size?: TModalSize
     onClose: () => void
