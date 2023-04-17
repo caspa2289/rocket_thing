@@ -18,7 +18,7 @@ export const LoginButton: FC = () => {
     }
 
     return (
-        <Button onClick={onLoginClick} type="ghost">
+        <Button onClick={onLoginClick} displayType="ghost">
             Войти
         </Button>
     )

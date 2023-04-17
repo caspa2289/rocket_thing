@@ -4,24 +4,25 @@ import classNames from 'classnames'
 
 export interface IButtonProps {
     children?: string
-    onClick: () => void
+    onClick?: () => void
     isDisabled?: boolean
     isLoading?: boolean
     size?: TButtonSize
     block?: boolean
     style?: string
-    type?: TType
+    type?: 'submit'
+    displayType?: TDisplayType
 }
 
 export type TButtonSize = 'sm' | 'md' | 'lg'
-export type TType = 'ghost' | 'default'
+export type TDisplayType = 'ghost' | 'default'
 
 const sizeMap: Record<TButtonSize, string> = {
     sm: styles.button__small,
     md: styles.button__medium,
     lg: styles.button__large,
 }
-const typeMap: Record<TType, string> = {
+const typeMap: Record<TDisplayType, string> = {
     ghost: styles.button__ghost,
     default: styles.button__default,
 }
@@ -34,7 +35,8 @@ export const Button: FC<IButtonProps> = memo((props) => {
         isLoading,
         isDisabled,
         block,
-        type = 'default',
+        type,
+        displayType = 'default',
     } = props
 
     const isButtonClickable = useMemo(
@@ -49,7 +51,7 @@ export const Button: FC<IButtonProps> = memo((props) => {
                     ? styles.button__active
                     : styles.button__inactive,
                 sizeMap[size],
-                typeMap[type],
+                typeMap[displayType],
                 block && styles.button__block
             ),
         [isButtonClickable, size]
@@ -61,11 +63,11 @@ export const Button: FC<IButtonProps> = memo((props) => {
     )
 
     const handleClick = useCallback(() => {
-        if (isButtonClickable) onClick()
+        if (isButtonClickable) onClick && onClick()
     }, [])
 
     return (
-        <button onClick={handleClick} className={buttonClassName}>
+        <button type={type} onClick={handleClick} className={buttonClassName}>
             {displayContent}
         </button>
     )
