@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/rocket_thing/static/css/main.54accd99.css",
-    "main.js": "/rocket_thing/static/js/main.e7a1c060.js",
+    "main.css": "/rocket_thing/static/css/main.a9f2cd53.css",
+    "main.js": "/rocket_thing/static/js/main.4e5d64c5.js",
     "static/media/dog.png": "/rocket_thing/static/media/dog.8d9f0e09f6d3faf1e263.png",
+    "static/media/dogx.webp": "/rocket_thing/static/media/dogx.be92b4bbf9cc3cd78406.webp",
     "index.html": "/rocket_thing/index.html",
-    "main.54accd99.css.map": "/rocket_thing/static/css/main.54accd99.css.map",
-    "main.e7a1c060.js.map": "/rocket_thing/static/js/main.e7a1c060.js.map"
+    "main.a9f2cd53.css.map": "/rocket_thing/static/css/main.a9f2cd53.css.map",
+    "main.4e5d64c5.js.map": "/rocket_thing/static/js/main.4e5d64c5.js.map"
   },
   "entrypoints": [
-    "static/css/main.54accd99.css",
-    "static/js/main.e7a1c060.js"
+    "static/css/main.a9f2cd53.css",
+    "static/js/main.4e5d64c5.js"
   ]
 }
