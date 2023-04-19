@@ -17,7 +17,7 @@ export const SignupButton: FC = () => {
     if (isModalOpen) {
         return (
             <Modal isActive={isModalOpen} onClose={handleClose} size="lg">
-                <SignupForm />
+                <SignupForm closeModal={handleClose} />
             </Modal>
         )
     }

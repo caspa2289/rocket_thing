@@ -38,7 +38,7 @@ export const LoginForm: FC = () => {
                             name="password"
                             type="password"
                         />
-                        <Button type="submit" isDisabled={isSubmitting}>
+                        <Button type="submit" isLoading={isSubmitting}>
                             submit
                         </Button>
                     </Form>

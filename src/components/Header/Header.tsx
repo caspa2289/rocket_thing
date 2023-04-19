@@ -4,6 +4,8 @@ import { LoginButton } from '../LoginButton'
 import { SignupButton } from '../SignupButton'
 import { useAppSelector } from '../../utils/storeHooks'
 import { selectUserState } from '../../selectors/user'
+import { UserProfile } from '../UserProfile'
+import { IUser } from '../../types'
 
 export const Header = () => {
     const userData = useAppSelector(selectUserState)
@@ -13,7 +15,7 @@ export const Header = () => {
         <div className={styles.header}>
             <img className={styles.logo} src={logo} />
             {isAuthorized ? (
-                <div>{userData?.name}</div>
+                <UserProfile {...(userData as IUser)} />
             ) : (
                 <div style={{ display: 'flex', gap: '5px' }}>
                     <LoginButton />

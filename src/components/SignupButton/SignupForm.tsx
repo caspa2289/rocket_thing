@@ -13,14 +13,20 @@ const initialValues: ISignupValues = {
     password: '',
 }
 
-export const SignupForm: FC = () => {
+interface ISignupProps {
+    closeModal: VoidFunction
+}
+
+export const SignupForm: FC<ISignupProps> = (props) => {
+    const { closeModal } = props
+
     const dispatch = useAppDispatch()
 
     const handleSubmit = (
         values: ISignupValues,
         { setSubmitting }: FormikHelpers<ISignupValues>
     ) => {
-        dispatch(signup({ setSubmitting, values }))
+        dispatch(signup({ setSubmitting, values, closeModal }))
     }
 
     return (
@@ -40,7 +46,7 @@ export const SignupForm: FC = () => {
                             name="password"
                             type="password"
                         />
-                        <Button type="submit" isDisabled={isSubmitting}>
+                        <Button type="submit" isLoading={isSubmitting}>
                             submit
                         </Button>
                     </Form>
