@@ -8,28 +8,9 @@
   z-index: 3;
   align-items: center;
 }
+
 .logo {
   display: flex;
-  padding-left: 90px;
+  margin-left: 10px;
   height: 30px;
 }
-.header_btn {
-  font-family: Roboto;
-  border-radius: 5px;
-  font-size: 14px;
-  height: 30px;
-  cursor: pointer;
-  padding: 0 18px;
-}
-.sign_in_btn {
-  background-color: black;
-  color: white;
-  border: 1px solid;
-}
-.sign_up_btn {
-  background: linear-gradient(180deg,#f88a25,#fab42d 50.52%,#f8b025);
-  border: none;
-}
-
-
-

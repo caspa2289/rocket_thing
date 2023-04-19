@@ -8,6 +8,7 @@ import {
 import { ILoginValues, ISignupValues } from '../types'
 import { getSHA256Hash } from '../utils/encryption'
 import { setUserData } from '../reducers/user'
+import { handleError, handleSuccess } from '../utils/notifications'
 
 export const signup =
     ({
@@ -30,9 +31,9 @@ export const signup =
 
             closeModal()
             //TODO: уведомления для пользака
-            console.log(data.message)
-        } catch (err) {
-            console.error(err)
+            handleSuccess(data.message)
+        } catch (err: any) {
+            handleError(err?.response?.data?.message ?? err)
         } finally {
             setSubmitting(false)
         }
@@ -57,8 +58,9 @@ export const login =
 
             //TODO: уведомления для пользака
             dispatch(setUserData(data.response))
+            handleSuccess(data.message)
         } catch (err: any) {
-            console.error(err.response.data.message ?? 'Неизвестная ошибка')
+            handleError(err?.response?.data?.message ?? err)
         } finally {
             setSubmitting(false)
         }
@@ -67,10 +69,10 @@ export const login =
 export const logout = (): AppThunk => async (dispatch) => {
     try {
         const { data } = await signoutRequest()
-        console.log(data.message)
         dispatch(setUserData({}))
+        handleSuccess(data.message)
     } catch (err: any) {
-        console.error(err.response.data.message ?? 'Неизвестная ошибка')
+        handleError(err?.response?.data?.message ?? err)
     }
 }
 
@@ -79,7 +81,7 @@ export const checkAuthorization = (): AppThunk => async (dispatch) => {
         const { data } = await checkAuthorizationRequest()
         dispatch(setUserData(data.response))
     } catch (err: any) {
-        console.error(err.response.data.message ?? 'Неизвестная ошибка')
+        console.error(err?.response?.data?.message ?? err)
         dispatch(setUserData({}))
     }
 }
