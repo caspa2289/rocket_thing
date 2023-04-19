@@ -12,6 +12,7 @@ import { Players } from '../Players'
 import { Header } from '../Header'
 import { checkAuthorization } from '../../actions/user'
 import { selectUserState } from '../../selectors/user'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
     const dispatch = useAppDispatch()
@@ -28,9 +29,9 @@ function App() {
     }, [])
 
     return (
-        <div>
-            <Header />
+        <>
             <div className={styles.wrapper}>
+                <Header />
                 <div className={styles.game__wrapper}>
                     <Players />
                     <Game />
@@ -48,7 +49,7 @@ function App() {
                     </Button>
                 )}
             </div>
-        </div>
+        </>
     )
 }
 
