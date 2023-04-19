@@ -8,5 +8,8 @@ export const signupRequest = (values: ISignupValues): TApiPromise<IUser> =>
 export const signinRequest = (values: ILoginValues): TApiPromise<IUser> =>
     axios.post(`${USER_API_PATH}/signin`, values, { withCredentials: true })
 
+export const signoutRequest = (): TApiPromise<IUser> =>
+    axios.get(`${USER_API_PATH}/signout`, { withCredentials: true })
+
 export const checkAuthorizationRequest = (): TApiPromise<IUser> =>
     axios.get(`${USER_API_PATH}/checkAuth`, { withCredentials: true })

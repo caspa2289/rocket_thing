@@ -64,7 +64,7 @@ export const Button: FC<IButtonProps> = memo((props) => {
 
     const handleClick = useCallback(() => {
         if (isButtonClickable) onClick && onClick()
-    }, [])
+    }, [isButtonClickable, onClick])
 
     return (
         <button type={type} onClick={handleClick} className={buttonClassName}>

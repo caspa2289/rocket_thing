@@ -11,14 +11,16 @@ import { resetGameState } from '../../reducers/game'
 import { Players } from '../Players'
 import { Header } from '../Header'
 import { checkAuthorization } from '../../actions/user'
+import { selectUserState } from '../../selectors/user'
 
 function App() {
     const dispatch = useAppDispatch()
     const stage = useSelector(selectGameStage)
+    const userInfo = useSelector(selectUserState)
 
     const isControlsDisabled = useMemo(
-        () => stage !== GAME_STAGES.beforeStarted,
-        [stage]
+        () => stage !== GAME_STAGES.beforeStarted || !userInfo.id,
+        [stage, userInfo]
     )
 
     useEffect(() => {
