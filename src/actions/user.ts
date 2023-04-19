@@ -9,6 +9,7 @@ import { ILoginValues, ISignupValues } from '../types'
 import { getSHA256Hash } from '../utils/encryption'
 import { setUserData } from '../reducers/user'
 import { handleError, handleSuccess } from '../utils/notifications'
+import { socket } from '../components/ws/socket'
 
 export const signup =
     ({
@@ -83,5 +84,7 @@ export const checkAuthorization = (): AppThunk => async (dispatch) => {
     } catch (err: any) {
         console.error(err?.response?.data?.message ?? err)
         dispatch(setUserData({}))
+    } finally {
+        socket.connect()
     }
 }

@@ -3,7 +3,7 @@ import { Game } from '../Game'
 import { GameControls } from '../GameControls'
 import { useSelector } from 'react-redux'
 import { selectGameStage } from '../../selectors/game'
-import { useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { GAME_STAGES } from '../../utils/constants'
 import { Button } from '../Button'
 import { useAppDispatch } from '../../utils/storeHooks'
@@ -12,7 +12,8 @@ import { Players } from '../Players'
 import { Header } from '../Header'
 import { checkAuthorization } from '../../actions/user'
 import { selectUserState } from '../../selectors/user'
-import { ToastContainer } from 'react-toastify'
+import { socket } from '../ws/socket'
+import { handleSuccess, handleWarning } from '../../utils/notifications'
 
 function App() {
     const dispatch = useAppDispatch()
@@ -23,6 +24,30 @@ function App() {
         () => stage !== GAME_STAGES.beforeStarted || !userInfo.id,
         [stage, userInfo]
     )
+
+    const handleConnect = useCallback(() => {
+        handleSuccess('WS connection established!')
+    }, [])
+
+    const handleDisconnect = useCallback(() => {
+        handleWarning('WS connection closed!')
+    }, [])
+
+    const handleTestEvent = useCallback((value: any) => {
+        console.log(value)
+    }, [])
+
+    useEffect(() => {
+        socket.on('connect', handleConnect)
+        socket.on('disconnect', handleDisconnect)
+        socket.on('test', handleTestEvent)
+
+        return () => {
+            socket.off('connect', handleConnect)
+            socket.off('disconnect', handleDisconnect)
+            socket.off('test', handleTestEvent)
+        }
+    }, [])
 
     useEffect(() => {
         dispatch(checkAuthorization())
