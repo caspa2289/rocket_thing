@@ -16,12 +16,20 @@
   background-color: white;
   min-width: 200px;
   min-height: 200px;
+  width: max-content;
+  height: max-content;
 
   &__medium {
     width: 350px;
+    width: max-content;
+    height: max-content;
+    padding: 30px;
   }
   &__large {
     width: 500px;
+    width: max-content;
+    height: max-content;
+    padding: 30px;
   }
 }
 .modal_content {
