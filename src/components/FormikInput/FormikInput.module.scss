@@ -1,0 +1,36 @@
+.field_group{
+  display: flex;
+  flex-direction: column;
+}
+
+.field_label {
+  font-size: 10px;
+  padding-bottom: 3px;
+}
+
+.input {
+  height: 56px;
+  width: 380px;
+  background: transparent;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding-left: 45px;
+  &:hover {
+    border: 1px solid black;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid orange;
+    box-shadow:0 0 5px orange;
+    transition: 0.2s;
+  }
+}
+
+.invalid {
+  border-color: red !important;
+}
+
+.error {
+color: red;
+  font-size: 12px;
+}

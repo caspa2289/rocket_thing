@@ -6,6 +6,7 @@ import { Button } from '../Button'
 import { useAppDispatch } from '../../utils/storeHooks'
 import { signup } from '../../actions/user'
 import { ISignupValues } from '../../types'
+import styles from './Signup.module.scss'
 
 const initialValues: ISignupValues = {
     name: '',
